@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;    
+}
+
+.App__container {
+    width: 1320px;
+    margin: auto;
+}
+
+.App__body {
+    display: flex;
+}
+
+/* body {
+    box-sizing: border-box;
+    background-image: url(background.jpg);
+    background-position: center;
+    background-size: cover;
+} */
