@@ -9,7 +9,8 @@
 }
 
 .MainContent {
-    width: 74%;
+    margin-top: 50px;
+    width: 80%;
 }
 
 .MainContent__header h1 {
@@ -83,13 +84,14 @@
 }
 
 .MainContent__item {
-    border-bottom: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid #ccc;
     padding: 22px 0;
 }
 
 .MainContent__pagination>div {
     width: 30%;
     margin: auto;
+    margin-top: 50px;
 }
 
 

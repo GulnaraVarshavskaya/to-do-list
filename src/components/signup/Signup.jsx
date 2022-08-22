@@ -9,7 +9,19 @@ import appleBtn from './imgs/apple-btn.svg';
 
 function Signup(props) {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = async (data) => {
+    const response = await fetch('http://localhost:3000/api/v1/signup', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then((data) => data.json())
+  
+  console.log(response)
+};
 
   console.log(watch("email"));
 
@@ -50,13 +62,26 @@ function Signup(props) {
             <img className="Signup-form__auth-btn-logo" src="/imgs/facebook-btn.svg" />
             Continue with Facebook
           </a>
-          <a className="Signup-form__auth-btn" href="#">
+          {/* <a className="Signup-form__auth-btn" href="#">
             <img className="Signup-form__auth-btn-logo" src={appleBtn} />
             Continue with Apple
-          </a>
+          </a> */}
 
           <div className="Signup-form__separator">
             <div className="Signup-form__separator-label">OR</div>
+          </div>
+
+          <div className="Signup-form__input-box">
+            <label className="Signup-form__input-label" htmlFor="username">Username</label>
+
+            <input
+              className="Signup-form__input"
+              type="username"
+              placeholder="Enter username"
+              {...register("username", { required: true })}
+            />
+
+            {errors.email && <div className='Signup-form__errors'>Please enter a valid username address.</div>}
           </div>
 
           <div className="Signup-form__input-box">
@@ -70,6 +95,19 @@ function Signup(props) {
             />
 
             {errors.email && <div className='Signup-form__errors'>Please enter a valid email address.</div>}
+          </div>
+
+          <div className="Signup-form__input-box">
+            <label className="Signup-form__input-label" htmlFor="password">Password</label>
+
+            <input
+              className="Signup-form__input"
+              type="password"
+              placeholder="Enter password"
+              {...register("password", { required: true })}
+            />
+
+            {errors.password && <div className='Signup-form__errors'>Please enter a valid password.</div>}
           </div>
 
           <div className={classTerms}>

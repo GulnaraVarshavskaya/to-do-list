@@ -8,6 +8,10 @@
     color: #5238AA; 
 }
 
+.Pagination {
+    margin-bottom: 100px !important;
+}
+
 .Pagination__ul {
     display: flex;
 }
